@@ -13,10 +13,10 @@ public class Example15 {
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
         VehicleService vehicleService = context.getBean(VehicleService.class);
-        
-        // AOP를 사용하지 않는 예시 : playSong
+
         Song song = new Song("Bohemian Rhapsody", "Queen");
         System.out.println(vehicleService.playMusic(true, song));
+        System.out.println(vehicleService.moveVehicle(true));
 
         context.close();
 

@@ -62,6 +62,7 @@ public class VehicleService {
     // AOP를 사용하지 않는 경우
     // : 특정 비즈니스 로직 전후로 수행되어야 하는 로직들이 많을 수 있음. - 실행 시간 측정, 로깅, 보안(인증/인가), 트랜잭션 관리 등
     // : AOP를 사용하지 않았을 때, 아래 코드와 같이 해당 로직을 매 메소드마다 작성을 해줘야 함. - 가독성이나 유지 보수 측면에서 최악
+    /*
     public String playMusic(boolean vehicleStarted, Song song) {
         // 실행 시간 측정
         Instant start = Instant.now();
@@ -84,9 +85,14 @@ public class VehicleService {
 
         return music;
     }
+    */
 
     // AOP를 사용하는 경우
-    // : 
+    // : 반복되는 코드를 작성하지 않아도, AOP를 구현한대로 실행됨. 따라서 아래의 한 줄로 끝남.
+    public String playMusic(boolean vehicleStarted, Song song) {
+        return speakers.makeSound(song);
+    }
+
     public String moveVehicle(boolean vehicleStarted) {
         return tyres.rotate();
     }
